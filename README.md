@@ -1,100 +1,115 @@
-# SIH — AI-Powered Early Crop Disease Detection
-## Milestone 1: AI Feasibility & Dataset Validation
+# 🌿 LeafLens AI — Offline Crop Disease Detection
 
-This repo contains **only** Milestone 1 (feasibility + dataset validation).
-No mobile app, backend, dashboard, or auth — by design, per the task scope.
+> **AI-powered, lightweight, confidence-aware crop disease detection for mobile and edge deployment.**
 
-## Setup
+LeafLens AI is a lightweight computer-vision system designed to identify crop leaf diseases from images using an **ImageNet-pretrained MobileNetV3-Small** model.
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
+The project focuses on the requirements of real-world agricultural deployment:
 
-The classical CV / data-audit stack (numpy, pandas, scikit-learn, OpenCV,
-Pillow, matplotlib) is enough to reproduce everything under `reports/`
-that is marked "LOCALLY VERIFIED". Training the actual target CNN
-(`src/training/train.py`) additionally needs `torch` + `torchvision`.
+- 📱 Lightweight architecture for mobile/edge devices
+- 📴 Offline inference capability
+- 🔍 Early-stage disease classification
+- 🎯 Confidence-aware predictions
+- 📊 Probabilistic output rather than only hard classification
+- 🧪 Model calibration using temperature scaling
+- 🖼️ Image-quality analysis
+- 🚨 Confidence thresholding and rejection of uncertain predictions
+- 📈 Class-wise and dataset-level evaluation
+- 🔬 Explainability support through Grad-CAM
+- 🧩 Modular training, evaluation, preprocessing and inference pipeline
 
-## Environment limitations hit in this research session (read this first)
+---
 
-This project was built inside a sandboxed research environment with a
-**restricted network allowlist** (GitHub, PyPI/npm-style package
-registries — no Kaggle, no Hugging Face, no IEEE DataPort downloads) and
-**no GPU**. Two concrete consequences:
+## 📌 Project Overview
 
-1. **PlantDoc** (small, CC BY 4.0, hosted on GitHub) was downloaded and
-   audited for real — see `reports/dataset_audit_plantdoc_*.md` and
-   `reports/baseline_feasibility_result_tomato.md` for genuine, locally
-   computed numbers.
-2. **PlantVillage** (Hugging Face, ~54k images) and **Paddy Doctor**
-   (Kaggle, 16k images) could **not** be downloaded here. Their reported
-   statistics in `reports/dataset_research.md` come from cross-checking
-   3+ independent published sources, not from a local audit. Pulling
-   them and re-running `src/data/audit.py` on them is the **first task**
-   for whoever continues this in a full dev environment.
-3. `torch`/`torchvision` could not be installed here without pulling
-   multi-GB CUDA wheels (irrelevant anyway with no GPU present). So
-   `src/models/`, `src/training/`, and `src/explainability/gradcam.py`
-   are written and structured but **not run** in this session. In their
-   place, a classical-features (HSV histogram + Random Forest) baseline
-   was actually trained and evaluated on real PlantDoc data with
-   scikit-learn/OpenCV, which are installed, to get genuine (if weak)
-   feasibility evidence rather than none at all.
+Farmers often face difficulty identifying plant diseases at an early stage, especially when expert agricultural support is unavailable.
 
-Every number in `reports/` is labeled with how it was obtained
-(locally verified vs. literature cross-checked vs. single-source/
-unverified) — see `reports/dataset_research.md` for the verification-tier
-legend.
+LeafLens AI aims to provide a practical computer-vision pipeline where a user can provide an image of a plant leaf and receive:
 
-## Project structure
+1. Predicted disease/class
+2. Calibrated confidence probability
+3. Top-3 predictions
+4. Acceptance/rejection status based on confidence
+5. Image-quality information
+6. Explainability support for understanding model attention
 
-```
-src/data/         download.py, audit.py, clean.py, split.py   — all runnable now
-src/preprocessing/ transforms.py (needs torch), quality.py (runnable now)
-src/models/        mobilenet.py, efficientnet.py               — needs torch
-src/training/      config.py, train.py                         — needs torch
-src/evaluation/    metrics.py, confusion_matrix.py, field_eval.py, baseline_feasibility_check.py (runnable now)
-src/explainability/ gradcam.py                                 — needs torch
-tests/              real unit tests against real downloaded data
-reports/            all Milestone 1 deliverables — see FEASIBILITY_REPORT.md
-```
+The current Milestone-1 implementation establishes the **research and ML foundation** required for a future offline mobile application.
 
-## Reproducing what was actually run in this session
+---
 
-```bash
-# 1. get real data
-python3 src/data/download.py plantdoc --dest data/raw
+# 🎯 Objectives
 
-# 2. audit it
-python3 src/data/audit.py --data_dir data/raw/plantdoc/train --dataset_name plantdoc_train \
-    --out_csv reports/dataset_audit_plantdoc_train.csv \
-    --out_md reports/dataset_audit_plantdoc_train.md \
-    --figures_dir reports/figures
+### Primary Objective
 
-# 3. clean it (flags cross-class label conflicts for human review, drops exact dupes)
-python3 src/data/clean.py --audit_csv reports/dataset_audit_plantdoc_train.csv \
-    --out_manifest data/interim/plantdoc_train_cleaned_manifest.csv
+Build a lightweight image-classification model capable of recognizing plant diseases from leaf images while remaining suitable for eventual mobile/edge deployment.
 
-# 4. split it
-python3 src/data/split.py --manifest_csv data/interim/plantdoc_train_cleaned_manifest.csv \
-    --out_dir data/processed/plantdoc_train_split
+### Secondary Objectives
 
-# 5. quick real feasibility probe (classical CV, no torch needed)
-python3 src/evaluation/baseline_feasibility_check.py \
-    --train_dir data/raw/plantdoc/train --test_dir data/raw/plantdoc/test \
-    --classes "Tomato Early blight leaf" "Tomato Septoria leaf spot" "Tomato leaf" \
-              "Tomato leaf bacterial spot" "Tomato leaf late blight" \
-              "Tomato leaf mosaic virus" "Tomato leaf yellow virus" "Tomato mold leaf"
+- Build a reproducible dataset preprocessing pipeline
+- Establish a reliable train/validation/test split
+- Train a lightweight CNN using transfer learning
+- Evaluate performance using class-balanced metrics
+- Analyze failure cases using confusion matrices
+- Measure prediction confidence
+- Improve confidence calibration
+- Determine a practical confidence threshold
+- Analyze the effect of image quality on prediction performance
+- Prepare the model for future ONNX/TFLite/mobile deployment
+- Provide a foundation for explainable and field-oriented inference
 
-# 6. once torch is installed in a full dev environment:
-python3 src/training/train.py --train_dir data/raw/plantdoc/train --val_dir data/raw/plantdoc/test
-```
+---
 
-## Read this next
+# 🧠 System Architecture
 
-- `reports/FEASIBILITY_REPORT.md` — the actual Milestone-1 deliverable:
-  answers to all 15 success-criteria questions, GO/MODIFY/STOP call.
-- `reports/dataset_research.md` — full dataset audit trail.
-- `reports/mvp_scope.md` — selected crops/diseases and why.
+```text
+                    ┌──────────────────────┐
+                    │      Leaf Image      │
+                    │  Camera / Gallery     │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Image Validation   │
+                    │ Quality / Readability │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │    Preprocessing     │
+                    │ Resize → Normalize   │
+                    │     224 × 224        │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                 ┌────────────────────────────┐
+                 │     MobileNetV3-Small      │
+                 │   ImageNet Transfer Learn  │
+                 └─────────────┬──────────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │      Raw Logits       │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │ Temperature Scaling  │
+                    │    T = 1.267833       │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │ Calibrated Softmax   │
+                    │   Probabilities      │
+                    └──────────┬───────────┘
+                               │
+                    ┌──────────┴──────────┐
+                    ▼                     ▼
+             Confidence ≥ 0.70      Confidence < 0.70
+                    │                     │
+                    ▼                     ▼
+                ACCEPTED              REVIEW /
+                 RESULT              UNCERTAIN
+                    │
+                    ▼
+              Top-3 Predictions
