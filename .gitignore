@@ -1,0 +1,38 @@
+# DATASETS / GENERATED DATA
+data/raw/**
+data/interim/**
+data/processed/**
+data/preprocessed/**
+data/quarantine/**
+data/recovered_test/**
+data/test/**
+data/train/**
+data/validation/**
+
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# MODEL WEIGHTS / EXPORTS
+*.pt
+*.pth
+*.onnx
+*.tflite
+*.h5
+*.keras
+
+# PYTHON
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+.env
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
