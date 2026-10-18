@@ -1,0 +1,25 @@
+{
+  "images_listed": 2464,
+  "missing_files": 5,
+  "unreadable": 0,
+  "missing_by_split": {
+    "test": 5
+  },
+  "n_classes": 27,
+  "sizes": {
+    "224.0x224.0": 2459
+  },
+  "modes": {
+    "RGB": 2459
+  },
+  "imbalance_ratio_max_over_min_train": 3.94,
+  "min_test_per_class": 4,
+  "max_test_per_class": 12,
+  "exact_duplicate_groups": 6,
+  "exact_cross_split_groups": 1,
+  "exact_cross_class_groups": 4,
+  "near_duplicate_pairs": 84,
+  "near_dup_cross_split_pairs": 30,
+  "near_dup_cross_class_pairs": 52,
+  "near_dup_pairs_touching_test": 9
+}
