@@ -39,3 +39,15 @@ def test_gradcam_target_class_changes_map():
         a, _ = g.generate(x, class_idx=0)
         b, _ = g.generate(x, class_idx=1)
     assert not np.allclose(a, b)
+
+
+def test_overlay_alignment_and_labelling():
+    from explainability.gradcam import EXPLANATION_NOTE, overlay
+    img = np.zeros((224, 224, 3), np.uint8)
+    cam = np.zeros((224, 224), np.float32); cam[100:140, 60:100] = 1.0
+    out = np.asarray(overlay(img, cam, caption=False))
+    hot = out[100:140, 60:100, 0].astype(int).mean(); cold = out[0:40, 150:200, 0].astype(int).mean()  # red channel
+    assert hot > cold  # heat sits exactly where the CAM is (aligned, same size)
+    assert "not proof of a diagnosis" in EXPLANATION_NOTE
+    with __import__("pytest").raises(ValueError):
+        overlay(img, np.zeros((10, 10), np.float32))

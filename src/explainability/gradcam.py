@@ -62,3 +62,22 @@ class GradCAM:
             return cam, class_idx
         finally:
             self.model.train(was_training)
+
+
+EXPLANATION_NOTE = "Model attention (Grad-CAM) - an explanation of what the model used, not proof of a diagnosis"
+
+
+def overlay(image_rgb_uint8, cam, alpha=0.45, caption=True):
+    """Blend a [0,1] CAM (same HxW as the image) onto an RGB uint8 image.
+    The caption labels the picture as model attention, not a diagnosis."""
+    from PIL import Image, ImageDraw
+    img = np.asarray(image_rgb_uint8, dtype=np.float32)
+    if cam.shape != img.shape[:2]:
+        raise ValueError(f"cam shape {cam.shape} != image {img.shape[:2]}")
+    r = np.clip(cam * 2, 0, 1)
+    b = np.clip(2 - cam * 2, 0, 1)
+    heat = np.stack([r, 1 - np.abs(cam * 2 - 1), b], -1) * 255
+    out = Image.fromarray(((1 - alpha) * img + alpha * heat).astype(np.uint8))
+    if caption:
+        ImageDraw.Draw(out).text((4, 2), "model attention - not a diagnosis", fill=(255, 255, 255))
+    return out

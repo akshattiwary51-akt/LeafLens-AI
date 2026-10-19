@@ -1,5 +1,8 @@
 # 🌿 LeafLens AI — Offline Crop Disease Detection
 
+> **Status (read first):** this repository ships a research pipeline, not a validated model. No checkpoint or accuracy figures are included; earlier numbers (T = 1.267833, threshold 0.70) are unverified. See `docs/IMPLEMENTATION_PLAN.md`, `docs/EVALUATION.md` (measured vs not measured) and `docs/KNOWN_LIMITATIONS.md`. Reproduce with the commands in `docs/EVALUATION.md` §D.
+
+
 > **AI-powered, lightweight, confidence-aware crop disease detection for mobile and edge deployment.**
 
 LeafLens AI is a lightweight computer-vision system designed to identify crop leaf diseases from images using an **ImageNet-pretrained MobileNetV3-Small** model.

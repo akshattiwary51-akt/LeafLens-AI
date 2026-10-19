@@ -1,8 +1,14 @@
 # Known limitations
-* No checkpoint or pretrained weights available in the audit environment → no accuracy/F1/calibration numbers for the real model were measured. The T=1.267833 and 0.70 threshold are carried over unverified.
-* PlantDoc is web-scraped; the audit found cross-split near-duplicates and conflicting labels, so any previously reported test accuracy is likely optimistic and noisy (236 test images).
-* Benchmark ≠ field performance; no field set exists.
-* Image-quality checks exist but are not part of inference.
-* No OOD detection; no mobile, backend, offline-device, latency or quantisation measurements.
-* Pad-to-square keeps small leaves small (no leaf detection/cropping).
-* Grad-CAM is diagnostic, not proof of correctness, and server-side only.
+* **No measured model performance**: pretrained weights unreachable here and no checkpoint in the repo (docs/EVALUATION.md §B).
+* Duplicate-review decisions are provisional (AI-assisted) until a human confirms `duplicate_review.csv`.
+* 66 label-conflict images (mostly Potato/Tomato blight, Corn leaf diseases) are quarantined, not relabelled; PlantDoc label noise likely extends beyond detectable duplicates.
+* Test set is tiny (227; Corn Gray leaf spot = 3) → wide confidence intervals; bootstrap treats images as independent.
+* Validation is used for both temperature and threshold (optimistic); the single-use test run is the unbiased check.
+* dHash near-duplicate detection is imperfect (false positives on padded images; misses heavy edits).
+* Quality diagnostics are advisory and their thresholds are unvalidated on field photos; they never reject.
+* No OOD / unknown-disease detection; high confidence does not imply in-distribution input.
+* Benchmark ≠ field performance; no field dataset. `src/evaluation/field_eval.py` is still a stub.
+* Grad-CAM is server-side/PyTorch only and is diagnostic, not proof.
+* Not implemented: TFLite/INT8, Android/Flutter app, backend, on-device latency/offline tests.
+* Windows cannot check out some PlantDoc test filenames (`?`); build on Linux/WSL.
+* Pipeline code paths were exercised with synthetic data and random-init smoke runs only.

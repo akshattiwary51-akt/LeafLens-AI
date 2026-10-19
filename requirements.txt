@@ -1,27 +1,15 @@
-
-
-# Milestone 1 environment — Python 3.11+ (this sandbox validated on 3.12)
-# Core scientific stack (verified installed/working in this session)
+# LeafLens AI -- compatible ranges. Exact versions verified by the test suite: requirements-lock.txt
 numpy>=1.26
 pandas>=2.0
 scikit-learn>=1.3
-scikit-image>=0.22
-opencv-python>=4.9
 Pillow>=10.0
+opencv-python>=4.9
 matplotlib>=3.8
-seaborn>=0.13
-jupyter>=1.0
-
-# Deep learning stack (NOT installed in this research sandbox — see
-# README "Environment limitations". Install in the real dev environment.)
 torch>=2.2
 torchvision>=0.17
 onnx>=1.15
 onnxruntime>=1.17
-
-# utilities
-albumentations>=1.4
+onnxscript>=0.1      # required by torch.onnx.export(dynamo=True)
 tqdm>=4.66
-
-# testing
 pytest>=8.0
+# removed: albumentations (never imported), seaborn/jupyter/scikit-image (legacy scripts/notebooks only)

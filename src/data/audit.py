@@ -41,7 +41,7 @@ def phash(img: Image.Image, hash_size: int = 8) -> str:
     threshold rather than exact-match grouping.
     """
     img = img.convert("L").resize((hash_size, hash_size), Image.LANCZOS)
-    pixels = list(img.getdata())
+    pixels = list(img.get_flattened_data() if hasattr(img, "get_flattened_data") else img.getdata())
     avg = sum(pixels) / len(pixels)
     bits = "".join("1" if p > avg else "0" for p in pixels)
     return hex(int(bits, 2))[2:].zfill(hash_size * hash_size // 4)

@@ -1,0 +1,71 @@
+a,a_split,a_class,b,b_split,b_class,kind,hamming,cross_split,cross_class
+train/Apple Scab Leaf/Apple-Scab1.jpg,train,Apple Scab Leaf,train/Apple Scab Leaf/applescab.jpg,train,Apple Scab Leaf,near_strong,0,False,False
+train/Apple rust leaf/20130802_111648.jpg,train,Apple rust leaf,train/Apple rust leaf/thumb-20130802_111648.jpg,train,Apple rust leaf,near_strong,0,False,False
+train/Bell_pepper leaf spot/Septoria-leaf-spot.jpg,train,Bell_pepper leaf spot,train/Tomato Septoria leaf spot/tomato-blight-treatment-blight.jpg,train,Tomato Septoria leaf spot,near_strong,1,False,True
+train/Bell_pepper leaf spot/green-pepper-plant-diseases-bacterial-spot-on-pepper-plant-green-pepper-plant-diseases-photos.jpg,train,Bell_pepper leaf spot,train/Bell_pepper leaf spot/peppers_bacterial_spot_zoom.jpg,train,Bell_pepper leaf spot,near_strong,1,False,False
+train/Bell_pepper leaf spot/image_1500x1500%253E.jpeg_1467983528.jpg,train,Bell_pepper leaf spot,train/Bell_pepper leaf spot/image_original.jpeg_1472603886.jpg,train,Bell_pepper leaf spot,near_strong,0,False,False
+train/Bell_pepper leaf spot/image_1500x1500%253E.jpeg_1472603885.jpg,train,Bell_pepper leaf spot,train/Bell_pepper leaf spot/image_original.jpeg_1472603885.jpg,train,Bell_pepper leaf spot,near_strong,0,False,False
+train/Blueberry leaf/blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg,train,Blueberry leaf,test/Blueberry leaf/blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg,test,Blueberry leaf,exact,0,True,False
+train/Blueberry leaf/wild-blueberries-576x1024.jpg,train,Blueberry leaf,train/Tomato Septoria leaf spot/20809116-standard.jpg,train,Tomato Septoria leaf spot,near_weak,4,False,True
+train/Cherry leaf/02b13cea19417b15cf3d6ff534aa7ea653ad783094a60_1260x1260.jpg,train,Cherry leaf,train/Cherry leaf/2febe52cfac784c3191c804390d51ab756a3a7c8b9314_1260x1260.jpg,train,Cherry leaf,near_weak,3,False,False
+train/Corn Gray leaf spot/2015070295153021.jpg,train,Corn Gray leaf spot,test/Corn leaf blight/2015070295153021.jpg,test,Corn leaf blight,exact,0,True,True
+train/Corn Gray leaf spot/corn-gray-leaf-spot-f4.jpg,train,Corn Gray leaf spot,test/Corn leaf blight/corn-gray-leaf-spot-f4.jpg,test,Corn leaf blight,exact,0,True,True
+train/Corn Gray leaf spot/gls99-anamosa.jpg,train,Corn Gray leaf spot,train/Corn leaf blight/gls99-anamosa-400x334.jpg,train,Corn leaf blight,near_strong,0,False,True
+train/Corn leaf blight/28430_rel.jpg,train,Corn leaf blight,train/Corn leaf blight/28430_web.jpg,train,Corn leaf blight,near_strong,0,False,False
+train/Corn leaf blight/Figure-2-.jpg,train,Corn leaf blight,train/Corn leaf blight/Northern-corn-leaf-blight-NM-F2.jpg,train,Corn leaf blight,near_strong,0,False,False
+train/Corn leaf blight/IMG_42231.jpg,train,Corn leaf blight,test/Corn Gray leaf spot/IMG_42231.jpg,test,Corn Gray leaf spot,exact,0,True,True
+train/Corn leaf blight/bacterial-corn-1.jpg,train,Corn leaf blight,train/Corn leaf blight/bacterial-corn-300x300.jpg,train,Corn leaf blight,near_strong,1,False,False
+train/Corn leaf blight/corn-short-backlit-Xanth-lesions-halos-f2-.jpg,train,Corn leaf blight,train/Corn leaf blight/corn-short-backlit-Xanth-lesions-halos-f2.jpg,train,Corn leaf blight,near_weak,2,False,False
+train/Corn leaf blight/northern-corn-leaf-blight-exserohilum-turcicum-lesions-on-a-maize-BX3K2K.jpg,train,Corn leaf blight,train/Soyabean leaf/soybean-seedling-at-vc-stage-cotyledons-and-unifoliate-leaves-fully-J5RK4F.jpg,train,Soyabean leaf,near_weak,4,False,True
+train/Corn rust leaf/Corn-Common-Rust-300x225.jpg,train,Corn rust leaf,train/Corn rust leaf/Corn-Common-Rust.jpg,train,Corn rust leaf,near_strong,0,False,False
+train/Peach leaf/peach-with-leaves-stock-picture-1662453.jpg,train,Peach leaf,test/Tomato Septoria leaf spot/2STEM.jpg,test,Tomato Septoria leaf spot,near_weak,3,True,True
+train/Potato leaf early blight/1421_0.jpeg_itok=FMtmgePj.jpg,train,Potato leaf early blight,test/Potato leaf late blight/1421_0.jpeg_itok=FMtmgePj.jpg,test,Potato leaf late blight,exact,0,True,True
+train/Potato leaf early blight/14321627273_58d893c3e2_potato-plant.jpg,train,Potato leaf early blight,train/Potato leaf late blight/14321627273_58d893c3e2_b.jpg,train,Potato leaf late blight,near_strong,0,False,True
+train/Potato leaf early blight/18028_1.jpg,train,Potato leaf early blight,train/Potato leaf late blight/24064_1.jpg,train,Potato leaf late blight,exact,0,False,True
+train/Potato leaf early blight/2OBH_29_Gardening_early_blight.jpg,train,Potato leaf early blight,train/Tomato Early blight leaf/Early_Blight_of_Tomato1687.jpg,train,Tomato Early blight leaf,near_strong,1,False,True
+train/Potato leaf early blight/36-early-blight-concentric-rings.jpg,train,Potato leaf early blight,train/Tomato Early blight leaf/EBTomato.jpg,train,Tomato Early blight leaf,near_strong,0,False,True
+train/Potato leaf early blight/36-early-blight-concentric-rings.jpg,train,Potato leaf early blight,train/Tomato Early blight leaf/tomatoblight.jpg,train,Tomato Early blight leaf,near_strong,0,False,True
+train/Potato leaf early blight/45035_1.jpg,train,Potato leaf early blight,train/Potato leaf late blight/Late+blight+on+potato.jpg,train,Potato leaf late blight,near_weak,2,False,True
+train/Potato leaf early blight/5816740026_d42ef24413_Phytophthora-Infestans.jpg,train,Potato leaf early blight,train/Tomato leaf late blight/tomato-late-blight-foliar-lesions_Scot-Nelson_CC-BY-SA-2.0.jpg,train,Tomato leaf late blight,near_strong,0,False,True
+train/Potato leaf early blight/5816740026_d42ef24413_Phytophthora-Infestans.jpg,train,Potato leaf early blight,test/Potato leaf late blight/5816740026_d42ef24413_Phytophthora-Infestans.jpg,test,Potato leaf late blight,exact,0,True,True
+train/Potato leaf early blight/Blght.jpg,train,Potato leaf early blight,train/Tomato leaf late blight/LBleaf2INIA_0.jpg,train,Tomato leaf late blight,near_strong,0,False,True
+train/Potato leaf early blight/Early-Blight-Leaves-56a348bf3df78cf7727cb35e.jpg,train,Potato leaf early blight,train/Tomato leaf late blight/Pest2369.jpg,train,Tomato leaf late blight,near_strong,0,False,True
+train/Potato leaf early blight/IMG_9055.JPG.jpg,train,Potato leaf early blight,train/Tomato Septoria leaf spot/caf212ccf4696675469a0beaa9e57213.jpg,train,Tomato Septoria leaf spot,near_strong,1,False,True
+train/Potato leaf early blight/backus-045-potato-blight.jpg,train,Potato leaf early blight,train/Tomato leaf late blight/a7710b5901ba1f8e9759ef7576cd9f09.jpg,train,Tomato leaf late blight,near_weak,2,False,True
+train/Potato leaf early blight/early-blight-closeup-NCSU.jpg,train,Potato leaf early blight,train/Tomato Early blight leaf/early-blight-closeup-sm.jpg,train,Tomato Early blight leaf,near_strong,0,False,True
+train/Potato leaf early blight/early-blight-or-target-spot-alternaria-solani-lesions-on-a-tomato-by9j8r.jpg,train,Potato leaf early blight,train/Tomato Early blight leaf/early-blight-or-target-spot-alternaria-solani-lesions-on-a-tomato-BY9J8R.jpg,train,Tomato Early blight leaf,near_strong,1,False,True
+train/Potato leaf early blight/irish-blight-symptoms-on-potato-leaves-atmf8b.jpg,train,Potato leaf early blight,test/Potato leaf late blight/irish-blight-symptoms-on-potato-leaves-atmf8b.jpg,test,Potato leaf late blight,exact,0,True,True
+train/Potato leaf late blight/IMG_5813-1024x768.jpg,train,Potato leaf late blight,train/Tomato leaf late blight/IMG_5813.jpg,train,Tomato leaf late blight,near_strong,0,False,True
+train/Potato leaf late blight/Jessore-potato-late-blight-8-2h2fdkl.jpg,train,Potato leaf late blight,train/Tomato leaf late blight/symptoms_of_late_blight_0.jpg,train,Tomato leaf late blight,near_strong,0,False,True
+train/Potato leaf late blight/Symptom_potato_late_blight.jpg,train,Potato leaf late blight,train/Tomato Early blight leaf/126689-004-D622CD2F.jpg,train,Tomato Early blight leaf,near_strong,0,False,True
+train/Potato leaf late blight/b3a52d4eda0deedc34260c4dee847a5b.jpg,train,Potato leaf late blight,train/Potato leaf late blight/early_blight.jpg,train,Potato leaf late blight,near_strong,0,False,False
+train/Potato leaf late blight/backus-056-potato-blight.jpg,train,Potato leaf late blight,test/Potato leaf early blight/backus-056-potato-blight.jpg,test,Potato leaf early blight,exact,0,True,True
+train/Raspberry leaf/579a1aa0c6b3fd0354d1a6b57a40ac42--red-raspberry-medicinal-plants.jpg,train,Raspberry leaf,train/Raspberry leaf/Raspberry-Suckers1.jpg,train,Raspberry leaf,near_strong,0,False,False
+train/Squash Powdery mildew leaf/6c460a55e7e8607e922d98e1416448d4.jpg,train,Squash Powdery mildew leaf,train/Squash Powdery mildew leaf/Aug+16+2010+051.jpg,train,Squash Powdery mildew leaf,near_strong,0,False,False
+train/Squash Powdery mildew leaf/squash-plant-identification-squash-powdery-mildew-garden-squash-varieties-pictures.jpg,train,Squash Powdery mildew leaf,train/Squash Powdery mildew leaf/squash-powdery-mildew.jpg,train,Squash Powdery mildew leaf,near_strong,1,False,False
+train/Tomato Early blight leaf/12July_mwnews_3-C.jpg,train,Tomato Early blight leaf,train/Tomato Septoria leaf spot/Septoria-leaf-spot-on-tomato-FOR-WEB.jpg,train,Tomato Septoria leaf spot,near_weak,4,False,True
+train/Tomato Early blight leaf/3606630.jpg,train,Tomato Early blight leaf,train/Tomato Early blight leaf/early-blight-pp-labeled_orig.jpg,train,Tomato Early blight leaf,near_strong,1,False,False
+train/Tomato Early blight leaf/EBTomato.jpg,train,Tomato Early blight leaf,train/Tomato Early blight leaf/tomatoblight.jpg,train,Tomato Early blight leaf,near_strong,0,False,False
+train/Tomato Early blight leaf/Early-bligh_t.jpg,train,Tomato Early blight leaf,train/Tomato Early blight leaf/Early-blight.jpg,train,Tomato Early blight leaf,near_strong,0,False,False
+train/Tomato Early blight leaf/MPC105550.jpg.rendition.largest.ss.jpg,train,Tomato Early blight leaf,train/Tomato Septoria leaf spot/MPC105550.jpg.rendition.largest.550.jpg,train,Tomato Septoria leaf spot,near_strong,0,False,True
+train/Tomato Early blight leaf/earlyblightpotato.jpg,train,Tomato Early blight leaf,test/Potato leaf early blight/earlyblightpotato.jpg,test,Potato leaf early blight,near_strong,0,True,True
+train/Tomato Early blight leaf/p1020084s.jpg,train,Tomato Early blight leaf,train/Tomato leaf late blight/tomato_late-blight_04_zoom.jpg,train,Tomato leaf late blight,near_strong,1,False,True
+train/Tomato Septoria leaf spot/Sept9-300x225.jpg,train,Tomato Septoria leaf spot,train/Tomato leaf bacterial spot/FS547-4-big.jpg,train,Tomato leaf bacterial spot,near_strong,1,False,True
+train/Tomato Septoria leaf spot/Septoria-Tomato.jpg,train,Tomato Septoria leaf spot,train/Tomato Septoria leaf spot/tomatofactsheet.png.jpg,train,Tomato Septoria leaf spot,near_strong,1,False,False
+train/Tomato Septoria leaf spot/Tomato%20bacterial%20spot%20closeup-050S.JPG.jpg,train,Tomato Septoria leaf spot,train/Tomato leaf bacterial spot/RyBx7MH.jpg,train,Tomato leaf bacterial spot,near_strong,1,False,True
+train/Tomato Septoria leaf spot/early-blight-septoria-ls-fig-3.jpg,train,Tomato Septoria leaf spot,test/Tomato Septoria leaf spot/early-blight-septoria-ls-fig-3.jpg,test,Tomato Septoria leaf spot,exact,0,True,False
+train/Tomato Septoria leaf spot/gray-leaf-spot.jpg,train,Tomato Septoria leaf spot,train/Tomato Septoria leaf spot/xgray-leaf-spot.jpg.pagespeed.ic.ltF8KfKtQ1.jpg,train,Tomato Septoria leaf spot,near_strong,0,False,False
+train/Tomato Septoria leaf spot/tomato-septoria-leaf-spot.jpg,train,Tomato Septoria leaf spot,train/grape leaf black rot/150px-Plasmopara_viticola_000.jpg,train,grape leaf black rot,near_weak,4,False,True
+train/Tomato Septoria leaf spot/tomato_V8.jpg,train,Tomato Septoria leaf spot,test/Tomato leaf bacterial spot/tomato_V8.jpg,test,Tomato leaf bacterial spot,exact,0,True,True
+train/Tomato leaf bacterial spot/bacterial-canker3x2400-2ia1kgd.jpg,train,Tomato leaf bacterial spot,test/Tomato leaf bacterial spot/07.17.18-Common_Tomato_Diseases_Canker-258x300.jpg,test,Tomato leaf bacterial spot,near_strong,1,True,False
+train/Tomato leaf late blight/20150619d.jpg,train,Tomato leaf late blight,train/Tomato leaf late blight/IMG_5360.jpg,train,Tomato leaf late blight,near_strong,0,False,False
+train/Tomato leaf late blight/924977LateBlightLeaf.jpg,train,Tomato leaf late blight,train/Tomato leaf late blight/LateBlightLeaf.jpg,train,Tomato leaf late blight,near_strong,0,False,False
+train/Tomato leaf late blight/TomatoLateBlight-3-Underside-2ebj05b-300x225.jpg,train,Tomato leaf late blight,train/Tomato leaf late blight/symptoms_of_late_blight.jpg2__0.jpg,train,Tomato leaf late blight,near_weak,2,False,False
+train/Tomato leaf late blight/late_blight1.jpg,train,Tomato leaf late blight,test/Tomato leaf late blight/18c.jpg,test,Tomato leaf late blight,near_strong,0,True,False
+train/Tomato leaf late blight/tomato-late-blight-foliar-lesions_Scot-Nelson_CC-BY-SA-2.0.jpg,train,Tomato leaf late blight,test/Potato leaf late blight/5816740026_d42ef24413_Phytophthora-Infestans.jpg,test,Potato leaf late blight,near_strong,0,True,True
+train/Tomato leaf mosaic virus/ab40cce958c60d8b6e0ec2e4fdb8f526.jpg,train,Tomato leaf mosaic virus,train/Tomato leaf yellow virus/Tomato2.jpg,train,Tomato leaf yellow virus,near_weak,3,False,True
+train/Tomato leaf yellow virus/TYLCVDFerrinlr.jpg,train,Tomato leaf yellow virus,train/Tomato leaf yellow virus/tomato-plant-virus-tomato-yellow-leaf-curl-virus-tomato-plant-disease-mosaic-virus.jpg,train,Tomato leaf yellow virus,near_weak,2,False,False
+train/Tomato leaf yellow virus/tomato-yellow-leaf-curl-disease.jpg,train,Tomato leaf yellow virus,train/Tomato mold leaf/tylc.jpg,train,Tomato mold leaf,near_strong,0,False,True
+train/Tomato leaf yellow virus/tylcv-seminar-1-638.jpg,train,Tomato leaf yellow virus,test/Tomato leaf yellow virus/tylcv-seminar-1-638.jpg,test,Tomato leaf yellow virus,exact,0,True,False
+train/grape leaf black rot/image66.jpg,train,grape leaf black rot,train/grape leaf black rot/muscals2.jpg,train,grape leaf black rot,near_strong,1,False,False
+test/Cherry leaf/d7b79dbc0bca0eb3e63fbe5dfb256ccd53d90a4eb1413_1260x1260.jpg,test,Cherry leaf,test/Cherry leaf/fc729af279e9087d00bd32d89a1552a756a3ad9de7f2b_1260x1260.jpg,test,Cherry leaf,near_weak,4,False,False

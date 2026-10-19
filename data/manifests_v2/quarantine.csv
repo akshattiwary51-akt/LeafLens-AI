@@ -1,0 +1,74 @@
+output,cls,split,group_id,reason,group_classes,group_splits
+train/Bell_pepper leaf spot/Septoria-leaf-spot.jpg,Bell_pepper leaf spot,train,g00323,label_conflict_pending_review,Bell_pepper leaf spot|Tomato Septoria leaf spot,train
+train/Blueberry leaf/blueberry-leaves-normal-above-and-iron-deficient-below-bgahf8.jpg,Blueberry leaf,train,g00425,leaks_into_frozen_test,Blueberry leaf,test|train
+train/Corn Gray leaf spot/2015070295153021.jpg,Corn Gray leaf spot,train,g00519,label_conflict_pending_review,Corn Gray leaf spot|Corn leaf blight,test|train
+train/Corn Gray leaf spot/corn-gray-leaf-spot-f4.jpg,Corn Gray leaf spot,train,g00552,label_conflict_pending_review,Corn Gray leaf spot|Corn leaf blight,test|train
+train/Corn Gray leaf spot/gls99-anamosa.jpg,Corn Gray leaf spot,train,g00559,label_conflict_pending_review,Corn Gray leaf spot|Corn leaf blight,train
+train/Corn leaf blight/IMG_42231.jpg,Corn leaf blight,train,g00641,label_conflict_pending_review,Corn Gray leaf spot|Corn leaf blight,test|train
+train/Corn leaf blight/gls99-anamosa-400x334.jpg,Corn leaf blight,train,g00559,label_conflict_pending_review,Corn Gray leaf spot|Corn leaf blight,train
+train/Potato leaf early blight/1421_0.jpeg_itok=FMtmgePj.jpg,Potato leaf early blight,train,g00971,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight,test|train
+train/Potato leaf early blight/14321627273_58d893c3e2_potato-plant.jpg,Potato leaf early blight,train,g00972,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight,train
+train/Potato leaf early blight/18028_1.jpg,Potato leaf early blight,train,g00975,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight,train
+train/Potato leaf early blight/2OBH_29_Gardening_early_blight.jpg,Potato leaf early blight,train,g00982,label_conflict_pending_review,Potato leaf early blight|Tomato Early blight leaf,train
+train/Potato leaf early blight/36-early-blight-concentric-rings.jpg,Potato leaf early blight,train,g00983,label_conflict_pending_review,Potato leaf early blight|Tomato Early blight leaf,train
+train/Potato leaf early blight/45035_1.jpg,Potato leaf early blight,train,g00985,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight,train
+train/Potato leaf early blight/5816740026_d42ef24413_Phytophthora-Infestans.jpg,Potato leaf early blight,train,g00988,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight|Tomato leaf late blight,test|train
+train/Potato leaf early blight/Blght.jpg,Potato leaf early blight,train,g00994,label_conflict_pending_review,Potato leaf early blight|Tomato leaf late blight,train
+train/Potato leaf early blight/Early-Blight-Leaves-56a348bf3df78cf7727cb35e.jpg,Potato leaf early blight,train,g00999,label_conflict_pending_review,Potato leaf early blight|Tomato leaf late blight,train
+train/Potato leaf early blight/IMG_9055.JPG.jpg,Potato leaf early blight,train,g01006,label_conflict_pending_review,Potato leaf early blight|Tomato Septoria leaf spot,train
+train/Potato leaf early blight/backus-045-potato-blight.jpg,Potato leaf early blight,train,g01019,label_conflict_pending_review,Potato leaf early blight|Tomato leaf late blight,train
+train/Potato leaf early blight/early-blight-closeup-NCSU.jpg,Potato leaf early blight,train,g01027,label_conflict_pending_review,Potato leaf early blight|Tomato Early blight leaf,train
+train/Potato leaf early blight/early-blight-or-target-spot-alternaria-solani-lesions-on-a-tomato-by9j8r.jpg,Potato leaf early blight,train,g01030,label_conflict_pending_review,Potato leaf early blight|Tomato Early blight leaf,train
+train/Potato leaf early blight/irish-blight-symptoms-on-potato-leaves-atmf8b.jpg,Potato leaf early blight,train,g01043,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight,test|train
+train/Potato leaf late blight/14321627273_58d893c3e2_b.jpg,Potato leaf late blight,train,g00972,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight,train
+train/Potato leaf late blight/24064_1.jpg,Potato leaf late blight,train,g00975,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight,train
+train/Potato leaf late blight/IMG_5813-1024x768.jpg,Potato leaf late blight,train,g01096,label_conflict_pending_review,Potato leaf late blight|Tomato leaf late blight,train
+train/Potato leaf late blight/Jessore-potato-late-blight-8-2h2fdkl.jpg,Potato leaf late blight,train,g01097,label_conflict_pending_review,Potato leaf late blight|Tomato leaf late blight,train
+train/Potato leaf late blight/Late+blight+on+potato.jpg,Potato leaf late blight,train,g00985,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight,train
+train/Potato leaf late blight/Symptom_potato_late_blight.jpg,Potato leaf late blight,train,g01119,label_conflict_pending_review,Potato leaf late blight|Tomato Early blight leaf,train
+train/Potato leaf late blight/backus-056-potato-blight.jpg,Potato leaf late blight,train,g01122,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight,test|train
+train/Tomato Early blight leaf/126689-004-D622CD2F.jpg,Tomato Early blight leaf,train,g01119,label_conflict_pending_review,Potato leaf late blight|Tomato Early blight leaf,train
+train/Tomato Early blight leaf/12July_mwnews_3-C.jpg,Tomato Early blight leaf,train,g01555,label_conflict_pending_review,Tomato Early blight leaf|Tomato Septoria leaf spot,train
+train/Tomato Early blight leaf/EBTomato.jpg,Tomato Early blight leaf,train,g00983,label_conflict_pending_review,Potato leaf early blight|Tomato Early blight leaf,train
+train/Tomato Early blight leaf/Early_Blight_of_Tomato1687.jpg,Tomato Early blight leaf,train,g00982,label_conflict_pending_review,Potato leaf early blight|Tomato Early blight leaf,train
+train/Tomato Early blight leaf/MPC105550.jpg.rendition.largest.ss.jpg,Tomato Early blight leaf,train,g01577,label_conflict_pending_review,Tomato Early blight leaf|Tomato Septoria leaf spot,train
+train/Tomato Early blight leaf/early-blight-closeup-sm.jpg,Tomato Early blight leaf,train,g01027,label_conflict_pending_review,Potato leaf early blight|Tomato Early blight leaf,train
+train/Tomato Early blight leaf/early-blight-or-target-spot-alternaria-solani-lesions-on-a-tomato-BY9J8R.jpg,Tomato Early blight leaf,train,g01030,label_conflict_pending_review,Potato leaf early blight|Tomato Early blight leaf,train
+train/Tomato Early blight leaf/earlyblightpotato.jpg,Tomato Early blight leaf,train,g01610,label_conflict_pending_review,Potato leaf early blight|Tomato Early blight leaf,test|train
+train/Tomato Early blight leaf/p1020084s.jpg,Tomato Early blight leaf,train,g01618,label_conflict_pending_review,Tomato Early blight leaf|Tomato leaf late blight,train
+train/Tomato Early blight leaf/tomatoblight.jpg,Tomato Early blight leaf,train,g00983,label_conflict_pending_review,Potato leaf early blight|Tomato Early blight leaf,train
+train/Tomato Septoria leaf spot/MPC105550.jpg.rendition.largest.550.jpg,Tomato Septoria leaf spot,train,g01577,label_conflict_pending_review,Tomato Early blight leaf|Tomato Septoria leaf spot,train
+train/Tomato Septoria leaf spot/Sept9-300x225.jpg,Tomato Septoria leaf spot,train,g01676,label_conflict_pending_review,Tomato Septoria leaf spot|Tomato leaf bacterial spot,train
+train/Tomato Septoria leaf spot/Septoria-leaf-spot-on-tomato-FOR-WEB.jpg,Tomato Septoria leaf spot,train,g01555,label_conflict_pending_review,Tomato Early blight leaf|Tomato Septoria leaf spot,train
+train/Tomato Septoria leaf spot/Tomato%20bacterial%20spot%20closeup-050S.JPG.jpg,Tomato Septoria leaf spot,train,g01693,label_conflict_pending_review,Tomato Septoria leaf spot|Tomato leaf bacterial spot,train
+train/Tomato Septoria leaf spot/caf212ccf4696675469a0beaa9e57213.jpg,Tomato Septoria leaf spot,train,g01006,label_conflict_pending_review,Potato leaf early blight|Tomato Septoria leaf spot,train
+train/Tomato Septoria leaf spot/early-blight-septoria-ls-fig-3.jpg,Tomato Septoria leaf spot,train,g01709,leaks_into_frozen_test,Tomato Septoria leaf spot,test|train
+train/Tomato Septoria leaf spot/tomato-blight-treatment-blight.jpg,Tomato Septoria leaf spot,train,g00323,label_conflict_pending_review,Bell_pepper leaf spot|Tomato Septoria leaf spot,train
+train/Tomato Septoria leaf spot/tomato_V8.jpg,Tomato Septoria leaf spot,train,g01760,label_conflict_pending_review,Tomato Septoria leaf spot|Tomato leaf bacterial spot,test|train
+train/Tomato leaf bacterial spot/FS547-4-big.jpg,Tomato leaf bacterial spot,train,g01676,label_conflict_pending_review,Tomato Septoria leaf spot|Tomato leaf bacterial spot,train
+train/Tomato leaf bacterial spot/RyBx7MH.jpg,Tomato leaf bacterial spot,train,g01693,label_conflict_pending_review,Tomato Septoria leaf spot|Tomato leaf bacterial spot,train
+train/Tomato leaf bacterial spot/bacterial-canker3x2400-2ia1kgd.jpg,Tomato leaf bacterial spot,train,g01894,leaks_into_frozen_test,Tomato leaf bacterial spot,test|train
+train/Tomato leaf late blight/IMG_5813.jpg,Tomato leaf late blight,train,g01096,label_conflict_pending_review,Potato leaf late blight|Tomato leaf late blight,train
+train/Tomato leaf late blight/LBleaf2INIA_0.jpg,Tomato leaf late blight,train,g00994,label_conflict_pending_review,Potato leaf early blight|Tomato leaf late blight,train
+train/Tomato leaf late blight/Pest2369.jpg,Tomato leaf late blight,train,g00999,label_conflict_pending_review,Potato leaf early blight|Tomato leaf late blight,train
+train/Tomato leaf late blight/a7710b5901ba1f8e9759ef7576cd9f09.jpg,Tomato leaf late blight,train,g01019,label_conflict_pending_review,Potato leaf early blight|Tomato leaf late blight,train
+train/Tomato leaf late blight/late_blight1.jpg,Tomato leaf late blight,train,g01981,leaks_into_frozen_test,Tomato leaf late blight,test|train
+train/Tomato leaf late blight/symptoms_of_late_blight_0.jpg,Tomato leaf late blight,train,g01097,label_conflict_pending_review,Potato leaf late blight|Tomato leaf late blight,train
+train/Tomato leaf late blight/tomato-late-blight-foliar-lesions_Scot-Nelson_CC-BY-SA-2.0.jpg,Tomato leaf late blight,train,g00988,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight|Tomato leaf late blight,test|train
+train/Tomato leaf late blight/tomato_late-blight_04_zoom.jpg,Tomato leaf late blight,train,g01618,label_conflict_pending_review,Tomato Early blight leaf|Tomato leaf late blight,train
+train/Tomato leaf mosaic virus/ab40cce958c60d8b6e0ec2e4fdb8f526.jpg,Tomato leaf mosaic virus,train,g02039,label_conflict_pending_review,Tomato leaf mosaic virus|Tomato leaf yellow virus,train
+train/Tomato leaf yellow virus/Tomato2.jpg,Tomato leaf yellow virus,train,g02039,label_conflict_pending_review,Tomato leaf mosaic virus|Tomato leaf yellow virus,train
+train/Tomato leaf yellow virus/tomato-yellow-leaf-curl-disease.jpg,Tomato leaf yellow virus,train,g02126,label_conflict_pending_review,Tomato leaf yellow virus|Tomato mold leaf,train
+train/Tomato leaf yellow virus/tylcv-seminar-1-638.jpg,Tomato leaf yellow virus,train,g02136,leaks_into_frozen_test,Tomato leaf yellow virus,test|train
+train/Tomato mold leaf/tylc.jpg,Tomato mold leaf,train,g02126,label_conflict_pending_review,Tomato leaf yellow virus|Tomato mold leaf,train
+train/Tomato two spotted spider mites leaf/SpotSpeckBlightMite-1l4v879.jpg,Tomato two spotted spider mites leaf,train,g02227,class_too_small,Tomato two spotted spider mites leaf,train
+train/Tomato two spotted spider mites leaf/comparing-diseases-4-canker-tomato-1y51ejs.jpg,Tomato two spotted spider mites leaf,train,g02228,class_too_small,Tomato two spotted spider mites leaf,train
+test/Corn Gray leaf spot/IMG_42231.jpg,Corn Gray leaf spot,test,g00641,label_conflict_pending_review,Corn Gray leaf spot|Corn leaf blight,test|train
+test/Corn leaf blight/2015070295153021.jpg,Corn leaf blight,test,g00519,label_conflict_pending_review,Corn Gray leaf spot|Corn leaf blight,test|train
+test/Corn leaf blight/corn-gray-leaf-spot-f4.jpg,Corn leaf blight,test,g00552,label_conflict_pending_review,Corn Gray leaf spot|Corn leaf blight,test|train
+test/Potato leaf early blight/backus-056-potato-blight.jpg,Potato leaf early blight,test,g01122,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight,test|train
+test/Potato leaf early blight/earlyblightpotato.jpg,Potato leaf early blight,test,g01610,label_conflict_pending_review,Potato leaf early blight|Tomato Early blight leaf,test|train
+test/Potato leaf late blight/1421_0.jpeg_itok=FMtmgePj.jpg,Potato leaf late blight,test,g00971,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight,test|train
+test/Potato leaf late blight/5816740026_d42ef24413_Phytophthora-Infestans.jpg,Potato leaf late blight,test,g00988,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight|Tomato leaf late blight,test|train
+test/Potato leaf late blight/irish-blight-symptoms-on-potato-leaves-atmf8b.jpg,Potato leaf late blight,test,g01043,label_conflict_pending_review,Potato leaf early blight|Potato leaf late blight,test|train
+test/Tomato leaf bacterial spot/tomato_V8.jpg,Tomato leaf bacterial spot,test,g01760,label_conflict_pending_review,Tomato Septoria leaf spot|Tomato leaf bacterial spot,test|train

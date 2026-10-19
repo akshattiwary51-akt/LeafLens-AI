@@ -1,0 +1,16 @@
+{
+  "n_classes": 27,
+  "split_sizes": {
+    "train": 1822,
+    "val": 456,
+    "test": 227
+  },
+  "quarantined": {
+    "label_conflict_pending_review": 66,
+    "leaks_into_frozen_test": 5,
+    "class_too_small": 2
+  },
+  "quarantined_images": 73,
+  "min_test_per_class": 3,
+  "test_sha256": "af2b99c35d0debb85d886260f3e47a248b4a571d8a053ba80ec945bcd25a194b"
+}

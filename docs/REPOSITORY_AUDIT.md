@@ -63,3 +63,6 @@ image file → `predict.py` → model → logits/T → softmax → threshold →
 5. Export ONNX/TFLite from the contract, compare logits (parity test exists for ONNX on a random-init model).
 6. Mobile app/backend only once 1–5 are done.
 7. Consolidate duplicated dataset/transform code; pin dependencies; add CI.
+
+## Addendum — status after the second hardening pass
+D1 fixed+tested · D2 fixed (artifact-bound) · D3 fixed (v2 manifests use POSIX paths) · D4 fixed · D5 resolved (single contract) · D6 marked LEGACY · D7 fixed (collision-safe, 12 collisions found) · D8 open (legacy copies remain, canonical code is shared) · D9 mitigated (group-aware v2; human sign-off pending) · D10 resolved for missing files (0 missing in v2), small-test-set caveat remains · D11 fixed in canonical code (`weights_only=True`; legacy scripts unchanged) · D12 replaced by a validation-based threshold policy (needs a checkpoint to run).

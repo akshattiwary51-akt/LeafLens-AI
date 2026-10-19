@@ -1,0 +1,28 @@
+cls,test,train,val,total
+Apple Scab Leaf,10,67,16,93
+Apple leaf,9,65,17,91
+Apple rust leaf,10,63,16,89
+Bell_pepper leaf,8,42,11,61
+Bell_pepper leaf spot,9,49,12,70
+Blueberry leaf,11,84,21,116
+Cherry leaf,10,37,10,57
+Corn Gray leaf spot,3,48,13,64
+Corn leaf blight,10,143,35,188
+Corn rust leaf,10,85,21,116
+Peach leaf,9,82,21,112
+Potato leaf early blight,6,76,19,101
+Potato leaf late blight,5,72,18,95
+Raspberry leaf,7,89,23,119
+Soyabean leaf,8,46,11,65
+Squash Powdery mildew leaf,6,99,25,130
+Strawberry leaf,8,70,18,96
+Tomato Early blight leaf,9,55,14,78
+Tomato Septoria leaf spot,11,106,26,143
+Tomato leaf,8,44,11,63
+Tomato leaf bacterial spot,8,79,19,106
+Tomato leaf late blight,10,75,18,103
+Tomato leaf mosaic virus,10,35,8,53
+Tomato leaf yellow virus,6,53,14,73
+Tomato mold leaf,6,67,17,90
+grape leaf,12,46,11,69
+grape leaf black rot,8,45,11,64

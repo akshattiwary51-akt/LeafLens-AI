@@ -15,3 +15,11 @@ Code: `src/leaflens/inference.py` (contract), `src/models/predict.py` (CLI/model
 **Explainability:** Grad-CAM (`src/explainability/gradcam.py`) works on the PyTorch model with `model.features[-1]` as target layer. It is unavailable under ONNX/TFLite inference.
 
 **Not present:** mobile app, backend/API, database, Docker, CI.
+
+## Pipeline (canonical)
+```
+raw PlantDoc -> preprocess.py -> duplicate_groups.py -> (human review) -> build_manifests.py -> verify_manifests.py
+   -> train.py (x3 experiments) -> calibrate.py (val) -> select_threshold.py (val) -> evaluate.py (val; test once, frozen)
+   -> predict.py / export_onnx.py
+```
+Checkpoint schema v1 and `calibration.json` are the only interface between stages; both are hash-bound.

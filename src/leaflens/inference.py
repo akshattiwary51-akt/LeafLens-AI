@@ -9,9 +9,10 @@ Contract (must match training; see docs/ARCHITECTURE.md):
   4. Model returns raw LOGITS. Temperature is applied exactly once
      (logits / T) followed by exactly one softmax.
   5. Decision: invalid image -> "invalid_image"; confidence >= threshold ->
-     "accepted"; otherwise "low_confidence" (never a definitive diagnosis).
+     "accepted"; otherwise "low_confidence" (never a definitive diagnosis); threshold None => never accepted.
 """
 from dataclasses import dataclass
+from typing import Optional
 from pathlib import Path
 
 import numpy as np
@@ -20,8 +21,8 @@ from PIL import Image, ImageOps, UnidentifiedImageError
 IMAGE_SIZE = 224
 IMAGENET_MEAN = np.array([0.485, 0.456, 0.406], dtype=np.float32)
 IMAGENET_STD = np.array([0.229, 0.224, 0.225], dtype=np.float32)
-DEFAULT_TEMPERATURE = 1.267833  # from the original (unavailable) checkpoint
-DEFAULT_THRESHOLD = 0.70        # unvalidated default; tune on validation data
+UNVALIDATED_LEGACY_TEMPERATURE = 1.267833  # from a checkpoint we cannot see; NOT a default
+UNVALIDATED_LEGACY_THRESHOLD = 0.70         # never validated; NOT a default
 MIN_SIDE = 32                   # reject degenerate inputs
 
 
@@ -66,14 +67,16 @@ def preprocess(path_or_file):
 
 @dataclass
 class Policy:
-    threshold: float = DEFAULT_THRESHOLD
-    temperature: float = DEFAULT_TEMPERATURE
+    """threshold=None means "no validated threshold": nothing is ever accepted."""
+    threshold: Optional[float] = None
+    temperature: float = 1.0
+    calibrated: bool = False
 
     def __post_init__(self):
-        if not 0.0 < self.threshold <= 1.0:
-            raise ValueError("threshold must be in (0, 1]")
-        if self.temperature <= 0:
-            raise ValueError("temperature must be > 0")
+        if self.threshold is not None and not 0.0 < self.threshold <= 1.0:
+            raise ValueError("threshold must be in (0, 1] or None")
+        if not np.isfinite(self.temperature) or self.temperature <= 0:
+            raise ValueError("temperature must be a finite number > 0")
 
 
 def decide(logits, idx_to_class, policy, top_k=3):
@@ -93,12 +96,14 @@ def decide(logits, idx_to_class, policy, top_k=3):
            for i in order]
     conf = float(p[order[0]])
     return {
-        "status": "accepted" if conf >= policy.threshold else "low_confidence",
+        "status": ("accepted" if policy.threshold is not None and conf >= policy.threshold
+                   else "low_confidence"),
         "prediction": top[0]["class"],
         "confidence": round(conf, 4),
         "top_predictions": top,
         "temperature": policy.temperature,
         "threshold": policy.threshold,
+        "calibrated": policy.calibrated,
         "disclaimer": "Model output, not an expert diagnosis.",
     }
 
@@ -107,3 +112,32 @@ def invalid_result(reason):
     return {"status": "invalid_image", "prediction": None, "confidence": None,
             "top_predictions": [], "reason": str(reason),
             "disclaimer": "Model output, not an expert diagnosis."}
+
+
+def quality_advisory(path_or_file):
+    """ADVISORY image diagnostics only -- never used to reject. Thresholds are
+    unvalidated rules of thumb (see docs/KNOWN_LIMITATIONS.md); validate on
+    representative field photos before using them to gate predictions."""
+    try:
+        import cv2
+        im = load_image(path_or_file)
+        g = cv2.cvtColor(np.asarray(im), cv2.COLOR_RGB2GRAY)
+        blur = float(cv2.Laplacian(g, cv2.CV_64F).var())
+        dark = float((g < 40).mean())
+        bright = float((g > 215).mean())
+        w, h = im.size
+        notes = []
+        if min(w, h) < 224:
+            notes.append("low resolution")
+        if blur < 100:
+            notes.append("possibly blurry")
+        if dark > 0.35:
+            notes.append("possibly underexposed")
+        if bright > 0.35:
+            notes.append("possibly overexposed")
+        return {"advisory_only": True, "width": w, "height": h,
+                "sharpness": round(blur, 1), "dark_fraction": round(dark, 3),
+                "bright_fraction": round(bright, 3), "notes": notes,
+                "thresholds_validated": False}
+    except Exception as e:  # diagnostics must never break prediction
+        return {"advisory_only": True, "error": str(e)}

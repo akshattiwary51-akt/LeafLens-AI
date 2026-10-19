@@ -12,6 +12,7 @@ from leaflens import inference as inf
 from leaflens.manifest_paths import resolve_image_path
 from data.preprocess import preprocess_image
 from models import predict as predict_mod
+from leaflens import checkpoint as ckmod
 
 
 def _img(path, size=(300, 180), color=(30, 160, 40)):
@@ -82,16 +83,19 @@ def test_policy_statuses_and_validation():
     assert inf.decide([0.1, 0], classes, inf.Policy(0.7, 1.0))["status"] == "low_confidence"
     with pytest.raises(ValueError):
         inf.Policy(threshold=0)
-    with pytest.raises(ValueError):
-        inf.Policy(temperature=-1)
+    for bad_t in (-1, 0, float("nan"), float("inf")):
+        with pytest.raises(ValueError):
+            inf.Policy(threshold=0.5, temperature=bad_t)
+    # no validated threshold => nothing is ever accepted
+    assert inf.decide([50, 0], classes, inf.Policy(None, 1.0))["status"] == "low_confidence"
 
 
 def test_decide_rejects_bad_shapes_and_nan():
     classes = {0: "a", 1: "b"}
     with pytest.raises(ValueError):
-        inf.decide([1, 2, 3], classes, inf.Policy())
+        inf.decide([1, 2, 3], classes, inf.Policy(0.5))
     with pytest.raises(ValueError):
-        inf.decide([np.nan, 1], classes, inf.Policy())
+        inf.decide([np.nan, 1], classes, inf.Policy(0.5))
 
 
 def test_manifest_windows_paths():
@@ -104,50 +108,57 @@ def test_manifest_windows_paths():
 def ckpt(tmp_path):
     torch.manual_seed(0)
     classes = ["Class A", "Class B", "Class C"]
-    m = models.mobilenet_v3_small(weights=None)
-    m.classifier[-1] = nn.Linear(m.classifier[-1].in_features, 3)
+    m = ckmod.build_model(3, pretrained=False)
     p = tmp_path / "best_model.pth"
-    torch.save({"classes": classes,
-                "class_to_idx": {c: i for i, c in enumerate(classes)},
-                "model_state_dict": m.state_dict()}, p)
+    ckmod.save_checkpoint(p, m, classes, {"random_init": True})
     return p
 
 
 def test_end_to_end_deterministic_and_safe(tmp_path, ckpt):
-    model, _, c2i = predict_mod.load_model(ckpt)
+    model, info = ckmod.load_checkpoint(ckpt)
     img = _img(tmp_path / "leaf.png")
-    pol = inf.Policy(0.7, 1.267833)
-    r1 = predict_mod.predict(img, model, c2i, pol)
-    r2 = predict_mod.predict(img, model, c2i, pol)
+    pol = inf.Policy(0.7, 1.267833, calibrated=True)
+    r1 = predict_mod.predict(img, model, info, pol)
+    r2 = predict_mod.predict(img, model, info, pol)
     assert r1 == r2
     assert r1["status"] in {"accepted", "low_confidence"}
     assert len(r1["top_predictions"]) == 3
+    assert r1["random_init_checkpoint"] is True
+    assert r1["image_quality_advisory"]["advisory_only"] is True
     bad = tmp_path / "bad.jpg"; bad.write_bytes(b"xx")
-    assert predict_mod.predict(bad, model, c2i, pol)["status"] == "invalid_image"
-
-
-def test_model_load_failures(tmp_path):
+    assert predict_mod.predict(bad, model, info, pol)["status"] == "invalid_image"
     with pytest.raises(FileNotFoundError):
-        predict_mod.load_model(tmp_path / "missing.pth")
-    junk = tmp_path / "junk.pth"; junk.write_bytes(b"junk")
-    with pytest.raises(Exception):
-        predict_mod.load_model(junk)
-    torch.save({"classes": ["a"], "class_to_idx": {"a": 5}, "model_state_dict": {}},
-               tmp_path / "badmap.pth")
-    with pytest.raises(ValueError):
-        predict_mod.load_model(tmp_path / "badmap.pth")
+        predict_mod.predict(tmp_path / "nope.png", model, info, pol)
+
+
+def test_quality_advisory_never_changes_decision(tmp_path, ckpt):
+    model, info = ckmod.load_checkpoint(ckpt)
+    img = _img(tmp_path / "flat.png")  # flat colour => "possibly blurry" advisory
+    pol = inf.Policy(0.7, 1.0, calibrated=True)
+    with_q = predict_mod.predict(img, model, info, pol, quality=True)
+    no_q = predict_mod.predict(img, model, info, pol, quality=False)
+    assert "possibly blurry" in with_q["image_quality_advisory"]["notes"]
+    for k in ("status", "prediction", "confidence"):
+        assert with_q[k] == no_q[k]
 
 
 def test_onnx_parity_with_pytorch(tmp_path, ckpt):
-    ort = pytest.importorskip("onnxruntime")
-    model, _, _ = predict_mod.load_model(ckpt)
-    x = inf.preprocess(_img(tmp_path / "leaf.png"))
-    onnx_path = tmp_path / "m.onnx"
-    torch.onnx.export(model, torch.from_numpy(x), str(onnx_path),
-                      input_names=["input"], output_names=["logits"],
-                      opset_version=17, dynamo=False)
-    sess = ort.InferenceSession(str(onnx_path), providers=["CPUExecutionProvider"])
-    got = sess.run(None, {"input": x})[0]
-    with torch.inference_mode():
-        want = model(torch.from_numpy(x)).numpy()
-    np.testing.assert_allclose(got, want, rtol=1e-3, atol=1e-4)
+    pytest.importorskip("onnxruntime")
+    import sys as _s
+    from pathlib import Path as _P
+    _s.path.insert(0, str(_P(__file__).resolve().parents[1] / "src" / "models"))
+    import export_onnx
+    imgs = [_img(tmp_path / f"l{k}.png", size=(300 + 40 * k, 200), color=(30 + 50 * k, 160, 40))
+            for k in range(3)]
+    rep = export_onnx.export_and_check(ckpt, tmp_path / "m.onnx", imgs)
+    assert rep["passed"] and rep["top1_agreement"] == 1.0
+    assert rep["random_init_checkpoint"] is True
+
+
+def test_export_refuses_random_init_checkpoint(tmp_path, ckpt):
+    import sys as _s
+    from pathlib import Path as _P
+    _s.path.insert(0, str(_P(__file__).resolve().parents[1] / "src" / "models"))
+    import export_onnx
+    with pytest.raises(SystemExit, match="REFUSED"):
+        export_onnx.main(["--checkpoint", str(ckpt), "--out", str(tmp_path / "x.onnx")])

@@ -13,6 +13,12 @@ Implements, per spec:
 - checkpointing best-val-macro-F1 model (not just best accuracy, because
   accuracy alone is misleading under heavy class imbalance)
 """
+# LEGACY: superseded by the canonical pipeline (src/models/train.py, calibrate.py,
+# select_threshold.py, evaluate.py). Kept only to reproduce historical numbers; it reads the
+# old, leaky data/manifests (v1) and legacy checkpoint layout. See docs/IMPLEMENTATION_PLAN.md.
+import warnings as _w
+_w.warn("legacy LeafLens script: use the canonical pipeline in docs/IMPLEMENTATION_PLAN.md",
+        DeprecationWarning, stacklevel=1)
 import argparse
 import json
 import os
