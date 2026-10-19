@@ -1,4 +1,8 @@
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from leaflens.manifest_paths import resolve_image_path
 import json
 
 import numpy as np
@@ -79,7 +83,7 @@ class PlantDocDataset(Dataset):
         row = self.df.iloc[index]
 
         image = Image.open(
-            row["image_path"]
+            resolve_image_path(row["image_path"])
         ).convert("RGB")
 
         if self.transform:

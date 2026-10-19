@@ -22,3 +22,6 @@ onnxruntime>=1.17
 # utilities
 albumentations>=1.4
 tqdm>=4.66
+
+# testing
+pytest>=8.0

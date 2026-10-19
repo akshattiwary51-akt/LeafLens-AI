@@ -1,0 +1,6 @@
+split,cls,path,exists,readable,w,h,mode,sha,dh
+test,Bell_pepper leaf,data\preprocessed\plantdoc_27class_224\test\Bell_pepper leaf\IMG_1629.JPG_1507122477.jpg,False,False,,,,,
+test,Corn Gray leaf spot,"data\preprocessed\plantdoc_27class_224\test\Corn Gray leaf spot\show_picture.asp_id=aaaaaaaaaaogcqq&w2=420&h2=378&clip=center,420,378&meta=0.jpg",False,False,,,,,
+test,Potato leaf late blight,data\preprocessed\plantdoc_27class_224\test\Potato leaf late blight\1421_0.jpeg_itok=FMtmgePj.jpg,False,False,,,,,
+test,grape leaf,data\preprocessed\plantdoc_27class_224\test\grape leaf\grape-leaf-picture-id119212425_k=6&m=119212425&s=612x612&w=0&h=8RZBWGcvXe4tAwhhvYZVFzWyRyiN5iTxKfWBpPT1FcU=.jpg,False,False,,,,,
+test,grape leaf,data\preprocessed\plantdoc_27class_224\test\grape leaf\latest_cb=20100621160325.jpg,False,False,,,,,
